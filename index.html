@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twin Pine Casino & Hotel - Modern Resort Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Tailwind gray-900 */
+            color: #f3f4f6; /* Tailwind gray-100 */
+        }
+        .hero-bg {
+            background-image: url('https://placehold.co/1920x1080/2D3748/E2E8F0?text=Twin+Pine+Casino+Night');
+            background-size: cover;
+            background-position: center;
+        }
+        .section-title {
+            font-weight: 800; /* extra bold */
+            font-size: 2.25rem; /* text-4xl */
+            line-height: 2.5rem; /* leading-10 */
+            text-align: center;
+            margin-bottom: 3rem; /* mb-12 */
+            color: #facc15; /* Tailwind yellow-400 */
+        }
+        .card {
+            background-color: #1f2937; /* Tailwind gray-800 */
+            border-radius: 0.75rem; /* rounded-xl */
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1); /* shadow-md */
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(250, 204, 21, 0.2), 0 4px 6px -4px rgba(250, 204, 21, 0.1); /* shadow-lg with yellow tint */
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem; /* py-3 px-6 */
+            border-radius: 0.5rem; /* rounded-lg */
+            font-weight: 600; /* font-semibold */
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-primary {
+            background-color: #facc15; /* yellow-400 */
+            color: #111827; /* gray-900 */
+        }
+        .btn-primary:hover {
+            background-color: #eab308; /* yellow-500 */
+            transform: scale(1.05);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: #facc15; /* yellow-400 */
+            border: 2px solid #facc15; /* yellow-400 */
+        }
+        .btn-secondary:hover {
+            background-color: #facc15; /* yellow-400 */
+            color: #111827; /* gray-900 */
+            transform: scale(1.05);
+        }
+        .nav-link {
+            color: #d1d5db; /* gray-300 */
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem; /* rounded-md */
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #ffffff; /* white */
+            background-color: #374151; /* gray-700 */
+        }
+        .active-nav-link {
+            color: #facc15; /* yellow-400 */
+            font-weight: 700;
+        }
+        /* Mobile Menu Styles */
+        #mobileMenu.hidden {
+            display: none;
+        }
+        /* Custom scrollbar for a more modern feel (optional) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937; /* gray-800 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #facc15; /* yellow-400 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #eab308; /* yellow-500 */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900/80 backdrop-blur-md shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="text-3xl font-extrabold text-white">
+                    TWIN <span class="text-yellow-400">PINE</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-2">
+                    <a href="#casino" class="nav-link active-nav-link">Casino</a>
+                    <a href="#dining" class="nav-link">Dining</a>
+                    <a href="#hotel" class="nav-link">Hotel</a>
+                    <a href="#entertainment" class="nav-link">Entertainment</a>
+                    <a href="#rewards" class="nav-link">Rewards</a>
+                    <a href="#visit" class="nav-link">Visit</a>
+                </nav>
+
+                <!-- Desktop CTA -->
+                <div class="hidden md:block">
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobileMenuButton" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-gray-800">
+            <nav class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+                <a href="#casino" class="block nav-link active-nav-link text-center">Casino</a>
+                <a href="#dining" class="block nav-link text-center">Dining</a>
+                <a href="#hotel" class="block nav-link text-center">Hotel</a>
+                <a href="#entertainment" class="block nav-link text-center">Entertainment</a>
+                <a href="#rewards" class="block nav-link text-center">Rewards</a>
+                <a href="#visit" class="block nav-link text-center">Visit</a>
+                <a href="#" class="block btn btn-primary w-full mt-4">Book Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg h-[calc(100vh-5rem)] flex items-center justify-center text-center relative">
+            <div class="absolute inset-0 bg-black opacity-50"></div> <!-- Overlay -->
+            <div class="relative z-10 p-4">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+                    Your Premier <span class="text-yellow-400">Gaming & Resort</span> Destination
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+                    Experience thrilling casino action, exquisite dining, luxurious accommodations, and live entertainment.
+                </p>
+                <a href="#promotions" class="btn btn-primary text-lg">Explore Promotions</a>
+                <a href="#casino" class="btn btn-secondary text-lg ml-4">Start Playing</a>
+            </div>
+        </section>
+
+        <!-- Casino Section -->
+        <section id="casino" class="py-16 sm:py-24 bg-gray-900">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Experience the Thrill</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Slot Machines Card -->
+                    <div class="card">
+                        <img src="https://placehold.co/600x400/374151/FACC15?text=Slot+Machines" alt="Slot Machines" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/600x400/374151/FFFFFF?text=Image+Error'; this.alt='Error loading image of slot machines'">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-yellow-400 mb-2">Slot Machines</h3>
+                            <p class="text-gray-300 mb-4">Hundreds of the latest and greatest slot machines await. Spin to win big!</p>
+                            <a href="#" class="font-semibold text-yellow-400 hover:text-yellow-300">Learn More <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                    <!-- Table Games Card -->
+                    <div class="card">
+                        <img src="https://placehold.co/600x400/374151/FACC15?text=Table+Games" alt="Table Games" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/600x400/374151/FFFFFF?text=Image+Error'; this.alt='Error loading image of table games'">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-yellow-400 mb-2">Table Games</h3>
+                            <p class="text-gray-300 mb-4">Join the action at our exciting table games, including Blackjack, Poker, and Roulette.</p>
+                            <a href="#" class="font-semibold text-yellow-400 hover:text-yellow-300">See Games <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                    <!-- Bingo Card -->
+                    <div class="card">
+                        <img src="https://placehold.co/600x400/374151/FACC15?text=Bingo+Hall" alt="Bingo Hall" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/600x400/374151/FFFFFF?text=Image+Error'; this.alt='Error loading image of bingo hall'">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-yellow-400 mb-2">Bingo</h3>
+                            <p class="text-gray-300 mb-4">Daubers at the ready! Enjoy classic Bingo fun and great prizes in our spacious hall.</p>
+                            <a href="#" class="font-semibold text-yellow-400 hover:text-yellow-300">View Schedule <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dining Section -->
+        <section id="dining" class="py-16 sm:py-24 bg-gray-800">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Savor the Flavor</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="card">
+                        <img src="https://placehold.co/600x400/4B5563/FACC15?text=Fine+Dining" alt="Fine Dining Restaurant" class="w-full h-64 object-cover" onerror="this.src='https://placehold.co/600x400/4B5563/FFFFFF?text=Image+Error'; this.alt='Error loading image of fine dining'">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-yellow-400 mb-2">Manzanita Restaurant</h3>
+                            <p class="text-gray-300 mb-4">Indulge in an exquisite fine dining experience with a curated menu and elegant ambiance.</p>
+                            <a href="#" class="btn btn-secondary">View Menu</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                         <img src="https://placehold.co/600x400/4B5563/FACC15?text=Casual+Eats" alt="Casual Cafe" class="w-full h-64 object-cover" onerror="this.src='https://placehold.co/600x400/4B5563/FFFFFF?text=Image+Error'; this.alt='Error loading image of casual cafe'">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-yellow-400 mb-2">The Grapevine Bar & Grill</h3>
+                            <p class="text-gray-300 mb-4">Enjoy delicious casual fare, craft beers, and cocktails in a relaxed setting.</p>
+                            <a href="#" class="btn btn-secondary">Explore Options</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hotel Section -->
+        <section id="hotel" class="py-16 sm:py-24 bg-gray-900">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="md:flex md:items-center md:space-x-12">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <img src="https://placehold.co/800x600/374151/FACC15?text=Luxury+Hotel+Room" alt="Luxury Hotel Room" class="rounded-xl shadow-2xl w-full" onerror="this.src='https://placehold.co/800x600/374151/FFFFFF?text=Image+Error'; this.alt='Error loading image of hotel room'">
+                    </div>
+                    <div class="md:w-1/2 text-center md:text-left">
+                        <h2 class="section-title !text-left !sm:text-center !md:text-left">Stay in Comfort & Style</h2>
+                        <p class="text-gray-300 text-lg mb-6">
+                            Relax and recharge in our luxurious hotel rooms and suites. Enjoy top-notch amenities, stunning views,
+                            and easy access to all the casino action.
+                        </p>
+                        <p class="text-gray-400 mb-8">
+                            Whether you're here for gaming, a show, or a relaxing getaway, our hotel provides the perfect retreat.
+                        </p>
+                        <a href="#" class="btn btn-primary text-lg">Book Your Stay</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Entertainment Section -->
+        <section id="entertainment" class="py-16 sm:py-24 bg-gray-800">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Live Entertainment & Events</h2>
+                <div class="bg-gray-700 p-8 rounded-xl shadow-xl text-center">
+                    <img src="https://placehold.co/800x400/4B5563/FACC15?text=Live+Concert+Stage" alt="Live Concert Stage" class="w-full h-64 object-cover rounded-lg mb-6" onerror="this.src='https://placehold.co/800x400/4B5563/FFFFFF?text=Image+Error'; this.alt='Error loading image of concert stage'">
+                    <h3 class="text-3xl font-bold text-yellow-400 mb-3">Upcoming Headliner: The Groovesters!</h3>
+                    <p class="text-xl text-white mb-1">Friday, June 20th - 9:00 PM</p>
+                    <p class="text-gray-300 mb-6">Get ready for an unforgettable night of music and fun. We host a variety of live bands, comedy shows, and special events.</p>
+                    <a href="#" class="btn btn-primary">See Events Calendar</a>
+                </div>
+            </div>
+        </section>
+
+         <!-- Promotions Section (Placeholder) -->
+        <section id="promotions" class="py-16 sm:py-24 bg-yellow-400 text-gray-900">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="section-title !text-gray-900">Exclusive Promotions</h2>
+                <p class="text-xl mb-8 max-w-2xl mx-auto">
+                    Don't miss out on our latest offers, giveaways, and special deals!
+                    From bonus slot play to dining credits, there's always something exciting happening.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-2">New Member Bonus</h3>
+                        <p class="text-gray-700">Sign up for our Rewards Club and get $20 in Free Play!</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-2">Weekend Slot Tournament</h3>
+                        <p class="text-gray-700">Compete for your share of $10,000 every Saturday!</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-2">Dining Specials</h3>
+                        <p class="text-gray-700">Enjoy 2-for-1 entrees at Manzanita on Tuesdays.</p>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-secondary !text-gray-900 !border-gray-900 hover:!bg-gray-900 hover:!text-yellow-400 mt-10">View All Promotions</a>
+            </div>
+        </section>
+
+        <!-- Rewards Club Section -->
+        <section id="rewards" class="py-16 sm:py-24 bg-gray-900">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <i class="fas fa-award text-yellow-400 text-5xl mb-4"></i>
+                <h2 class="section-title">Join Our Rewards Club</h2>
+                <p class="text-lg text-gray-300 mb-8 max-w-xl mx-auto">
+                    Become a Twin Pine Rewards Club member and unlock exclusive benefits, offers, and points for your play.
+                    The more you play, the more you earn!
+                </p>
+                <a href="#" class="btn btn-primary text-lg">Sign Up Today & Get Rewards</a>
+            </div>
+        </section>
+
+        <!-- Visit Section -->
+        <section id="visit" class="py-16 sm:py-24 bg-gray-800">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Visit Us</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-4">Contact & Location</h3>
+                        <p class="text-gray-300 mb-2"><i class="fas fa-map-marker-alt mr-2 text-yellow-400"></i> 22222 S. Highway 29, Middletown, CA 95461</p>
+                        <p class="text-gray-300 mb-2"><i class="fas fa-phone mr-2 text-yellow-400"></i> (707) 987-0197 or (800) 564-4872</p>
+                        <p class="text-gray-300 mb-6"><i class="fas fa-envelope mr-2 text-yellow-400"></i> info@twinpine.com (Placeholder)</p>
+                        <h4 class="text-xl font-semibold text-yellow-400 mb-2">Hours of Operation</h4>
+                        <p class="text-gray-300">Casino: 24 Hours, 7 Days a Week</p>
+                        <p class="text-gray-300">Restaurant hours vary, please check individual pages.</p>
+                    </div>
+                    <div>
+                        <!-- Placeholder for a map -->
+                        <div class="bg-gray-700 rounded-lg overflow-hidden shadow-lg h-80 flex items-center justify-center">
+                           <img src="https://placehold.co/600x400/4B5563/FACC15?text=Map+to+Twin+Pine+Casino" alt="Map to Twin Pine Casino" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x300/4B5563/FFFFFF?text=Map+Error'; this.alt='Error loading map'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-700 pt-12 pb-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <!-- About/Logo -->
+                <div>
+                    <h3 class="text-2xl font-extrabold text-white mb-2">TWIN <span class="text-yellow-400">PINE</span></h3>
+                    <p class="text-gray-400 text-sm">Your premier destination for gaming, dining, and entertainment in Middletown, CA.</p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold text-yellow-400 mb-3">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#casino" class="text-gray-400 hover:text-yellow-400 text-sm">Casino</a></li>
+                        <li><a href="#dining" class="text-gray-400 hover:text-yellow-400 text-sm">Dining</a></li>
+                        <li><a href="#hotel" class="text-gray-400 hover:text-yellow-400 text-sm">Hotel</a></li>
+                        <li><a href="#entertainment" class="text-gray-400 hover:text-yellow-400 text-sm">Entertainment</a></li>
+                        <li><a href="#rewards" class="text-gray-400 hover:text-yellow-400 text-sm">Rewards Club</a></li>
+                    </ul>
+                </div>
+                <!-- More Links -->
+                <div>
+                    <h4 class="text-lg font-semibold text-yellow-400 mb-3">Information</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400 text-sm">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400 text-sm">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400 text-sm">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400 text-sm">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400 text-sm">Responsible Gaming</a></li>
+                    </ul>
+                </div>
+                <!-- Social Media -->
+                <div>
+                    <h4 class="text-lg font-semibold text-yellow-400 mb-3">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-yellow-400 text-2xl"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-400 text-2xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-400 text-2xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-400 text-2xl"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p class="text-gray-500 text-xs mt-4">Must be 21 or older to gamble. Please gamble responsibly.</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-gray-500 text-sm">&copy; <span id="currentYear"></span> Twin Pine Casino & Hotel. All Rights Reserved. Designed with <i class="fas fa-heart text-red-500"></i> by AI.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // Toggle icon
+            const icon = mobileMenuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // Smooth scroll for navigation links & close mobile menu on link click
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Prevent default for all links starting with # that we intend to handle for smooth scroll
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+
+                // Only attempt to scroll if targetId is a valid ID selector (e.g., "#casino", not just "#")
+                if (targetId && targetId.length > 1) { 
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+                // If targetId is just "#" or null/empty, it won't try to scroll,
+                // and default browser jump is already prevented.
+
+                // Close mobile menu if open and it's a mobile nav link being clicked
+                if (!mobileMenu.classList.contains('hidden') && this.closest('#mobileMenu')) {
+                    mobileMenu.classList.add('hidden');
+                    // Reset mobile menu icon to 'bars'
+                    const icon = mobileMenuButton.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+
+        // Active navigation link highlighting on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('header nav a'); // Desktop nav links
+        const mobileNavLinks = document.querySelectorAll('#mobileMenu nav a'); // Mobile nav links
+
+        function changeNav(targetId) {
+            // Helper function to update active class
+            const updateLinks = (links) => {
+                links.forEach(link => {
+                    link.classList.remove('active-nav-link');
+                    if (link.getAttribute('href') === `#${targetId}`) {
+                        link.classList.add('active-nav-link');
+                    }
+                });
+            };
+            updateLinks(navLinks);
+            updateLinks(mobileNavLinks);
+        }
+
+        const observerOptions = {
+            root: null, // relative to document viewport
+            rootMargin: '0px',
+            threshold: 0.4 // 40% of the section needs to be visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    changeNav(entry.target.id);
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>
